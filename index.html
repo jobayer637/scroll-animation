@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            width: 80%;
+            margin: auto;
+        }
+
+        @media(max-width: 480px){
+            body {
+            width: 100%;
+        } 
+        }
+
+        section {
+            margin: 5rem 0;
+            position: relative;
+        }
+
+        section>* :is(img) {
+            width: 100%;
+            aspect-ratio: 1.8;
+            object-fit: cover;
+        }
+
+        .nav-section {
+            position: sticky;
+            top: 0;
+            background-color: aliceblue;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 10px 0;
+            z-index: 9;
+        }
+
+        .nav {
+            position: relative;
+        }
+
+        .nav> :is(ul) {
+            list-style: none;
+            display: flex;
+            gap: 8%;
+            justify-content: center;
+            margin-left: -2rem;
+        }
+
+        .nav>*>* {
+            font-size: 18px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: indigo;
+            text-decoration: none;
+        }
+
+        .animation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .animation>* {
+            flex-basis: 47%;
+            position: relative;
+        }
+
+        @media(max-width: 768px) {
+            .animation>* {
+                flex-basis: 100%;
+            }
+        }
+
+        .animation>*>* {
+            overflow: hidden;
+        }
+
+        .animation>*>*>img {
+            transition: .5s ease-in-out;
+            width: 100%;
+            aspect-ratio: 1.5;
+            object-fit: cover;
+        }
+
+        .animation>*>*>img:hover {
+            transform: scale(1.05);
+        }
+
+        .anim-1 {
+            animation-name: aim-1;
+            animation-duration: 1.3s;
+        }
+
+        .anim-2 {
+            animation-name: aim-2;
+            animation-duration: 1.3s;
+        }
+
+        @media (max-width: 768px) {
+            .anim-1,
+            .anim-2 {
+                animation-duration: 2.5s;
+            }
+        }
+
+        @keyframes aim-1 {
+            from {
+                transform: translate(-128%, 46%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+            }
+        }
+
+        @keyframes aim-2 {
+            from {
+                transform: translate(128%, 46%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+            }
+        }
+
+
+        .gellary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-column-gap: .5%;
+            grid-row-gap: 1vh;
+            grid-auto-flow: dense;
+        }
+
+        .gellary>* {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gellary>div::after {
+            position: absolute;
+            content: "";
+            height: 0%;
+            width: 0%;
+            top: 50%;
+            left: 50%;
+            transition: .5s ease-in-out;
+        }
+
+        .gellary>div:hover::after {
+            height: 100%;
+            width: 100%;
+            top: 0%;
+            left: 0%;
+            background-color: rgb(0, 0, 0, .4);
+        }
+
+        .gellary>*>* {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s ease-in-out;
+        }
+
+        .gellary>*>*:hover {
+            transform: scale(1.05);
+        }
+
+        .vartical {
+            grid-column: auto / span 2;
+        }
+
+        .horizontal {
+            grid-row: auto / span 2;
+        }
+
+        .big {
+            grid-column: auto / span 2;
+            grid-row: auto / span 2;
+        }
+
+        @media (max-width: 480px) {
+            .gellary {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-column-gap: 1%;
+                grid-row-gap: .5vh;
+            }
+        }
+
+        @keyframes btt-bottom {
+            from {
+                transform: translate(0%, 100%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+            }
+        }
+
+        @keyframes btt-left {
+            from {
+                transform: translate(-110%, 10%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+            }
+        }
+
+        @keyframes btt-right {
+            from {
+                transform: translate(110%, 10%);
+            }
+
+            to {
+                transform: translate(0%, 0%);
+            }
+        }
+    </style>
+
+</head>
+
+<body id="home">
+    <section class="nav-section">
+        <div class="nav">
+            <ul>
+                <a href="#home ">
+                    <li>Home</li>
+                </a>
+                <a href="#gallery">
+                    <li>Gallery</li>
+                </a>
+                <a href="#card">
+                    <li>Card</li>
+                </a>
+            </ul>
+        </div>
+    </section>
+    <section class="sec-1">
+        <div>
+            <h1>1Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, tempore.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum dolores sapiente alias atque, eos placeat
+                consequuntur sequi voluptates labore deleniti possimus quaerat, cumque at quo perspiciatis, provident
+                repudiandae suscipit nulla aliquam hic excepturi facere? Magni esse, nisi recusandae illum voluptatum
+                doloremque ab minima explicabo enim sint. Fugiat placeat minima in!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ullam consequuntur excepturi,
+                accusantium facilis, laborum veniam minima repudiandae enim totam magnam placeat? Commodi debitis
+                eveniet, consectetur incidunt quas culpa delectus numquam facere ut necessitatibus suscipit nisi animi,
+                totam libero corporis? Vitae rem odio vero, eum ducimus numquam dicta ipsam? Labore?</p>
+            <img class="lazyload" src="images/gallery/gal-1.jpg" alt="image">
+        </div>
+    </section>
+
+    <section class="sec-2">
+        <div>
+            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, tempore.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum dolores sapiente alias atque, eos placeat
+                consequuntur sequi voluptates labore deleniti possimus quaerat, cumque at quo perspiciatis, provident
+                repudiandae suscipit nulla aliquam hic excepturi facere? Magni esse, nisi recusandae illum voluptatum
+                doloremque ab minima explicabo enim sint. Fugiat placeat minima in!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ullam consequuntur excepturi,
+                accusantium facilis, laborum veniam minima repudiandae enim totam magnam placeat? Commodi debitis
+                eveniet, consectetur incidunt quas culpa delectus numquam facere ut necessitatibus suscipit nisi animi,
+                totam libero corporis? Vitae rem odio vero, eum ducimus numquam dicta ipsam? Labore?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est iusto labore expedita, perspiciatis quo
+                quasi placeat. Sapiente nulla, repellat eaque non recusandae quibusdam magni maiores suscipit quia
+                fugiat nihil voluptas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, animi consequatur veritatis cum in
+                consectetur. Eos, illum? Quod ex fugit nostrum illum eveniet? Debitis, officiis. Ab assumenda omnis illo
+                minus et magni, fugit, veritatis mollitia vel possimus hic molestiae tempora laudantium quae, distinctio
+                ducimus neque repellendus voluptatibus officia numquam adipisci.</p>
+            <img class="lazyload" src="images/gallery/gal-2.jpg" alt="image">
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, tempore.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum dolores sapiente alias atque, eos placeat
+                consequuntur sequi voluptates labore deleniti possimus quaerat, cumque at quo perspiciatis, provident
+                repudiandae suscipit nulla aliquam hic excepturi facere? Magni esse, nisi recusandae illum voluptatum
+                doloremque ab minima explicabo enim sint. Fugiat placeat minima in!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ullam consequuntur excepturi,
+                accusantium facilis, laborum veniam minima repudiandae enim totam magnam placeat? Commodi debitis
+                eveniet, consectetur incidunt quas culpa delectus numquam facere ut necessitatibus suscipit nisi animi,
+                totam libero corporis? Vitae rem odio vero, eum ducimus numquam dicta ipsam? Labore?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est iusto labore expedita, perspiciatis quo
+                quasi placeat. Sapiente nulla, repellat eaque non recusandae quibusdam magni maiores suscipit quia
+                fugiat nihil voluptas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, animi consequatur veritatis cum in
+                consectetur. Eos, illum? Quod ex fugit nostrum illum eveniet? Debitis, officiis. Ab assumenda omnis illo
+                minus et magni, fugit, veritatis mollitia vel possimus hic molestiae tempora laudantium quae, distinctio
+                ducimus neque repellendus voluptatibus officia numquam adipisci.</p>
+            <img class="lazyload" src="images/gallery/gal-3.jpg" alt="image">
+        </div>
+    </section>
+
+    <section id="card">
+        <div class="animation">
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus temporibus cupiditate harum
+                    dolores, mollitia perferendis repellat placeat ad, iusto architecto voluptatem necessitatibus
+                    impedit quia ipsam nam hic adipisci sequi saepe veniam voluptas voluptate voluptatibus. Atque
+                    similique aliquid excepturi explicabo labore repellendus rem eius accusamus rerum? Iste sunt alias
+                    impedit possimus?</p>
+                <div>
+                    <img class="lazyload" id="anim-1" src="images/gallery/gal-13.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus temporibus cupiditate harum
+                    dolores, mollitia perferendis repellat placeat ad, iusto architecto voluptatem necessitatibus
+                    impedit quia ipsam nam hic adipisci sequi saepe veniam voluptas voluptate voluptatibus. Atque
+                    similique aliquid excepturi explicabo labore repellendus rem eius accusamus rerum? Iste sunt alias
+                    impedit possimus?</p>
+                <div>
+                    <img class="lazyload" id="anim-2" src="images/gallery/gal-14.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, tempore.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum dolores sapiente alias atque, eos placeat
+                consequuntur sequi voluptates labore deleniti possimus quaerat, cumque at quo perspiciatis, provident
+                repudiandae suscipit nulla aliquam hic excepturi facere? Magni esse, nisi recusandae illum voluptatum
+                doloremque ab minima explicabo enim sint. Fugiat placeat minima in!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ullam consequuntur excepturi,
+                accusantium facilis, laborum veniam minima repudiandae enim totam magnam placeat? Commodi debitis
+                eveniet, consectetur incidunt quas culpa delectus numquam facere ut necessitatibus suscipit nisi animi,
+                totam libero corporis? Vitae rem odio vero, eum ducimus numquam dicta ipsam? Labore?</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est iusto labore expedita, perspiciatis quo
+                quasi placeat. Sapiente nulla, repellat eaque non recusandae quibusdam magni maiores suscipit quia
+                fugiat nihil voluptas!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, animi consequatur veritatis cum in
+                consectetur. Eos, illum? Quod ex fugit nostrum illum eveniet? Debitis, officiis. Ab assumenda omnis illo
+                minus et magni, fugit, veritatis mollitia vel possimus hic molestiae tempora laudantium quae, distinctio
+                ducimus neque repellendus voluptatibus officia numquam adipisci.</p>
+            <img class="lazyload" src="images/gallery/gal-4.jpg" alt="image">
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, laboriosam.</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita necessitatibus quia natus aut possimus nostrum earum quaerat. Molestiae ipsum blanditiis quo possimus sit libero velit iusto expedita? Maiores, nulla quia?</p>
+        <div class="gellary">
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-1.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-2.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-3.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-4.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-5.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-6.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-7.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-8.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-9.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-10.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-11.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-12.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-13.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-14.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-15.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-1.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-2.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-3.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-4.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-5.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-1.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-2.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-3.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-4.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-5.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-6.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-7.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-8.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-9.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-10.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-11.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-12.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-13.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-14.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-15.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-1.jpg" alt=""></div>
+            <div class="big"><img class="lazyload" src="images/gallery/gal-2.jpg" alt=""></div>
+            <div class="vartical"><img class="lazyload" src="images/gallery/gal-3.jpg" alt=""></div>
+            <div><img class="lazyload" src="images/gallery/gal-4.jpg" alt=""></div>
+            <div class="horizontal"><img class="lazyload" src="images/gallery/gal-5.jpg" alt=""></div>
+        </div>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"
+        integrity="sha512-jNDtFf7qgU0eH/+Z42FG4fw3w7DM/9zbgNPe3wfJlCylVDTT3IgKW5r92Vy9IHa6U50vyMz5gRByIu4YIXFtaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                const parentHeight = $(this).height()
+                const parentTop = $(this).scrollTop()
+                const goalTop = $(".animation").offset().top - parentHeight
+                const galleryTop = $(".gellary").offset().top - parentHeight
+                const sec2Top = $(".sec-2").offset().top - parentHeight
+                if(parentTop > sec2Top){
+                    $(".sec-2 div img").css({
+                        transition: `1s`,
+                        transitionDelay: `0.5s`,
+                        transform: `rotate(720deg)`
+                    })
+                }
+
+                if (parentTop > goalTop) {
+                    $("#anim-1").addClass("anim-1")
+                    $("#anim-2").addClass("anim-2")
+                }
+
+                $(".gellary div img").each(function (i, el) {
+                    const elTop = $(el).offset().top - parentHeight
+                    if (parentTop > elTop) {
+                        $(el).css({
+                            animationDuration: `1s`,
+                            animationName: `${i > 10 ? i > 20 ? 'btt-bottom' : 'btt-right' : 'btt-left'}`
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+</body>
+
+</html>
